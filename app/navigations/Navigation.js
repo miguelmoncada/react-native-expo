@@ -48,7 +48,7 @@ export default function Navigation(){
           component={TopRestaurantsStack}
           options={{      
             tabBarIcon: ({ color, size }) => (
-              <MaterialCommunityIcons name="cup" color={color} size={size} />
+              <MaterialCommunityIcons name="star-circle-outline" color={color} size={size} />
             )
           }} 
         />
@@ -57,7 +57,7 @@ export default function Navigation(){
           component={SearchStack}
           options={{      
             tabBarIcon: ({ color, size }) => (
-              <MaterialCommunityIcons name="cup" color={color} size={size} />
+              <MaterialCommunityIcons name="cloud-search-outline" color={color} size={size} />
             )
           }} 
         />
@@ -66,7 +66,7 @@ export default function Navigation(){
           component={MyAccountStack}
           options={{      
             tabBarIcon: ({ color, size }) => (
-              <MaterialCommunityIcons name="cup" color={color} size={size} />
+              <MaterialCommunityIcons name="account" color={color} size={size} />
             )
           }} 
         />
