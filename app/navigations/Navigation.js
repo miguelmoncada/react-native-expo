@@ -1,25 +1,23 @@
-import React from 'react';
-import {Icon} from 'react-native-elements';
-import {createAppContainer} from '@react-navigation/native';
-import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import * as React from 'react';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import RestaurantsScreen from '../screens/Restaurants'
+import MyAccountScreen from '../screens/MyAccount'
 
-import RestaurantsScreenStacks from './RestaurantsStacks';
+const Tab = createBottomTabNavigator();
 
-const NavigationStacks = createBottomTabNavigator({
-  Restaurants: {
-    screen: RestaurantsScreenStacks,
-    navigationOptions: () => ({
-      tabBarLabel: 'Restaurants',
-      tabBarIcon: ({tintColor}) => {
-        <Icon
-          type="material-community"
-          name="compass-outline"
-          size={22}
-          color={tintColor}
-        />;
-      },
-    }),
-  },
-});
-
-export default createAppContainer(NavigationStacks);
+export default function Navigation() {
+  return (
+    <Tab.Navigator>
+      <Tab.Screen 
+        name="Restaurants" 
+        component={RestaurantsScreen}
+        options={{      
+          tabBarIcon: ({ color, size }) => (
+            <MaterialCommunityIcons name="silverware-fork-knife" color={color} size={size} />
+          )
+        }} 
+      />
+    </Tab.Navigator>
+  );
+}
