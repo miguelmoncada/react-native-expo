@@ -14,7 +14,6 @@ import CreateStacks from './CreateStacks'
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
 
-
 function RestaurantsStack() {
   return( <CreateStacks name="Restaurants" component={RestaurantsScreen} /> );
 }
@@ -32,9 +31,6 @@ function MyAccountStack() {
 }
 
 export default function Navigation(){
-  
-
-
   return(
     <NavigationContainer>
       <Tab.Navigator>
