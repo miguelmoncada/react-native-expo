@@ -1,7 +1,6 @@
 import React from 'react';
 import { NavigationContainer } from "@react-navigation/native"
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { createStackNavigator } from '@react-navigation/stack';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 import RestaurantsScreen from '../screens/Restaurants'
@@ -88,7 +87,7 @@ export default function Navigation(){
               <MaterialCommunityIcons name="account" color={color} size={size} />
             )
           }}
-        />
+        /> 
       </Tab.Navigator>
     </NavigationContainer>
   );
