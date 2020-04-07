@@ -1,6 +1,6 @@
 import * as React from 'react';
-import { NavigationContainer } from '@react-navigation/native';
 import Navigation from './app/navigations/Navigation'
+import { firebaseapp } from './app/utils/Firebase'
 
 export default function App() {
   return (

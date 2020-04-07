@@ -7,7 +7,8 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 import RestaurantsScreen from '../screens/Restaurants'
 import TopRestaurantsScreen from '../screens/TopRestaurants'
 import SearchScreen from '../screens/Search'
-import MyAccountScreen from '../screens/MyAccount'
+import MyAccountScreen from '../screens/Account/MyAccount'
+import LoginScreen from '../screens/Account/Login'
 
 import CreateStacks from './CreateStacks'
 
@@ -30,10 +31,20 @@ function MyAccountStack() {
   return( <CreateStacks name="My Account" component={MyAccountScreen} /> );
 }
 
+function LoginStack() {
+  return( <CreateStacks name="Login" component={LoginScreen} /> );
+}
+
 export default function Navigation(){
+    
   return(
     <NavigationContainer>
-      <Tab.Navigator>
+      <Tab.Navigator
+        initialRouteName="My Account"
+        tabBarOptions={{
+          activeTintColor: "#00a680",
+        }}
+      >
         <Tab.Screen 
           name="Restaurants" 
           component={RestaurantsStack}
@@ -61,14 +72,23 @@ export default function Navigation(){
             )
           }} 
         />
-        <Tab.Screen 
+        <Tab.Screen
           name="My Account" 
           component={MyAccountStack}
           options={{      
             tabBarIcon: ({ color, size }) => (
               <MaterialCommunityIcons name="account" color={color} size={size} />
             )
-          }} 
+          }}
+        />
+        <Tab.Screen
+          name="Login" 
+          component={LoginStack}
+          options={{      
+            tabBarIcon: ({ color, size }) => (
+              <MaterialCommunityIcons name="account" color={color} size={size} />
+            )
+          }}
         />
       </Tab.Navigator>
     </NavigationContainer>
