@@ -28,7 +28,7 @@ export default function userGuest(props) {
                     buttonStyle={style.btnStyle}
                     containerStyle={style.btnContainer}
                     title="Ver tu perfil"
-                    onPress={() => {navigation.navigate('Login')}}
+                    onPress={() => {navigation.navigate("Login")}}
                 />
             </View>
         </ScrollView>
