@@ -1,6 +1,8 @@
 import React from 'react'
 import { StyleSheet ,Text, View, ScrollView, Image } from 'react-native'
 import { Divider } from 'react-native-elements'
+import ImagenLogo from '../../components/ImagenLogo'
+import CreateAccount from '../../components/CreateAccount'
 
 export default function Login(props) {
     
@@ -8,11 +10,7 @@ export default function Login(props) {
 
     return (
       <ScrollView>
-          <Image 
-            source={require("../../../assets/img/logo.png")}
-            style={style.image}
-            resizeMode="contain"
-          />
+          <ImagenLogo />
         <View style={style.viewContainer}>
             <CreateAccount navigation={navigation}/>
         </View>
@@ -23,39 +21,7 @@ export default function Login(props) {
     );
 }
 
-function CreateAccount(props) {
-
-    const {navigation} = props 
-
-    return (
-         <Text style={style.textRegister}>
-             ¿Aun no tienes una cuenta?{" "}
-             <Text
-                style={style.btnRegister}
-                onPress={()=> {navigation.navigate("Register")}}
-             >
-                Regístrarte
-             </Text>
-         </Text>
-    );
-}
-
 const style = StyleSheet.create({
-    btnRegister: {
-        color: "#00a680",
-        fontWeight: "bold",
-
-    },
-    textRegister: {
-        marginTop: 15,
-        marginLeft: 15,
-        marginRight: 15,
-    },
-    image: {
-        height:120,
-        width: "100%",
-        marginTop: 20,
-    },
     viewContainer: {
         marginRight: 40,
         marginLeft: 40,

@@ -1,10 +1,14 @@
 import React from 'react'
-import { Text, View } from 'react-native'
+import { StyleSheet, View, Image } from 'react-native'
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 
 export default function userGuest(props) {
     return (
-        <View>
-            <Text> Register </Text>
-        </View>
+        <KeyboardAwareScrollView>
+{/*             <Image >
+            <View>
+                <TextInput />
+            </View> */}
+        </KeyboardAwareScrollView>
     )
 }
