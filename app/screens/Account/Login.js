@@ -1,8 +1,9 @@
 import React from 'react'
 import { StyleSheet ,Text, View, ScrollView, Image } from 'react-native'
-import { Divider } from 'react-native-elements'
 import ImagenLogo from '../../components/ImagenLogo'
 import CreateAccount from '../../components/CreateAccount'
+import CustomViewContainer from '../../components/CustomViewContainer'
+import CustomDivider from '../../components/CustomDivider'
 
 export default function Login(props) {
     
@@ -11,23 +12,12 @@ export default function Login(props) {
     return (
       <ScrollView>
           <ImagenLogo />
-        <View style={style.viewContainer}>
+        <CustomViewContainer>
             <CreateAccount navigation={navigation}/>
-        </View>
-        <Divider style={style.divider} />
-        <View style={style.viewContainer}>
-        </View>
+        </CustomViewContainer>
+        <CustomDivider />
+        <CustomViewContainer>
+        </CustomViewContainer>
       </ScrollView>   
     );
 }
-
-const style = StyleSheet.create({
-    viewContainer: {
-        marginRight: 40,
-        marginLeft: 40,
-    },
-    divider: {
-        backgroundColor: "#00a680",
-        margin: 40,
-    }
-});

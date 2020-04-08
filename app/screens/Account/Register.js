@@ -1,14 +1,20 @@
 import React from 'react'
 import { StyleSheet, View, Image } from 'react-native'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
+import ImagenLogo from '../../components/ImagenLogo'
+import CustomViewContainer from '../../components/CustomViewContainer'
 
 export default function userGuest(props) {
     return (
         <KeyboardAwareScrollView>
-{/*             <Image >
-            <View>
-                <TextInput />
-            </View> */}
+            <ImagenLogo />
+            <CustomViewContainer>
+                
+            </CustomViewContainer>
         </KeyboardAwareScrollView>
     )
 }
+
+const style = StyleSheet.create({
+
+});

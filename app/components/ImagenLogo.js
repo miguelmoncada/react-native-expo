@@ -1,7 +1,7 @@
 import React from 'react'
 import { StyleSheet, Image } from 'react-native'
 
-export default function Login(props) {
+export default function ImagenLogo(props) {
     return (
         <Image 
         source={require("../../assets/img/logo.png")}
