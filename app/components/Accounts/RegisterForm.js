@@ -1,11 +1,14 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { StyleSheet, View } from 'react-native'
 import { Input, Icon, Button } from 'react-native-elements'
 
 export default function RegisterForm(props) {
 
+    const [ hidePassword , setHidePassword] = useState(true)
+    const [ hideRepeatPassword , setHideRepeatPassword] = useState(true)
+
     const register = () => {
-        
+
     }
 
     return (
@@ -29,28 +32,30 @@ export default function RegisterForm(props) {
             <Input
                 placeholder="Contraseña"
                 password={true}
-                secureTextEntry={true}
+                secureTextEntry={hidePassword}
                 containerStyle={style.inputForm}
                 onChange={() => console.log("")}
                 rightIcon={
                     <Icon 
                         type="material-community"
-                        name="eye-outline"
+                        name={ hidePassword ? "eye-outline" : "eye-off-outline" }
                         iconStyle={style.iconRight}
+                        onPress={() => {setHidePassword(!hidePassword)}}
                     />
                 }
             />
             <Input
                 placeholder="Repetir Contraseña"
                 password={true}
-                secureTextEntry={true}
+                secureTextEntry={hideRepeatPassword}
                 containerStyle={style.inputForm}
                 onChange={() => console.log("")}
                 rightIcon={
                     <Icon 
                         type="material-community"
-                        name="eye-outline"
+                        name={ hideRepeatPassword ? "eye-outline" : "eye-off-outline" }
                         iconStyle={style.iconRight}
+                        onPress={() => {setHideRepeatPassword(!hideRepeatPassword)}}
                     />
                 }
             />
