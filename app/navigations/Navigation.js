@@ -11,23 +11,26 @@ import SearchStack from '../navigations/stacks/SearchStacks'
 import SettingsStacks from '../navigations/stacks/SettingsStacks'
 /* END IMPORTING STACKS */
 
-/* BEGIN IMPORTING STACKS */
-import ThemeContext from '../context/ThemeContext'
-import ThemesColor from '../components/CustomStyleSheet'
-/* END IMPORTING STACKS */
+/* BEGIN IMPORTING THEME CONTEXT */
+import CustomTheme from '../components/CustomStyleSheet'
+import {ThemeContext} from '../context/ThemeContext';
+/* END IMPORTING THEME CONTEXT */
 
 
-export default function Navigation(){
-  
+export default function Navigation(props){
+
+  const [theme, setTheme] = useState(CustomTheme.primary);
+
   const Tab = createBottomTabNavigator();  
 
   return(
     /* BEGIN CREATE BOTTOM TABS*/
-    <NavigationContainer>
+    <ThemeContext.Provider value={[theme, setTheme]}>
+      <NavigationContainer>
       <Tab.Navigator
         initialRouteName="Accounts"
         tabBarOptions={{
-          activeTintColor: "#00a680",
+          activeTintColor: theme.color,
         }}
       >
         <Tab.Screen 
@@ -77,6 +80,7 @@ export default function Navigation(){
         />
       </Tab.Navigator>
     </NavigationContainer>
+    </ThemeContext.Provider>
     /* END CREATE BOTTOM TABS*/
   );
 }

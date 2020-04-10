@@ -11,7 +11,7 @@ export default function Login(props) {
 
     return (
       <ScrollView>
-          <ImagenLogo />
+        <ImagenLogo />
         <CustomViewContainer>
             <CreateAccount navigation={navigation}/>
         </CustomViewContainer>

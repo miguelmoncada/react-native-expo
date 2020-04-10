@@ -1,10 +1,11 @@
 import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
-  theme_color_0: {
+  success: {
     color: "#00a680"
   },
-  theme_color_1: {
+  primary: {
     color: "#4267b2"
   },
 });
+
