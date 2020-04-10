@@ -19,7 +19,7 @@ import {ThemeContext} from '../context/ThemeContext';
 
 export default function Navigation(props){
 
-  const [theme, setTheme] = useState(CustomTheme.primary);
+  const [theme, setTheme] = useState(CustomTheme.success);
 
   const Tab = createBottomTabNavigator();  
 
