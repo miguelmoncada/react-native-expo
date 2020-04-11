@@ -120,7 +120,4 @@ const style = StyleSheet.create({
     marginTop: 20,
     width: "95%"
   },
-  btnRegister: {
-    backgroundColor: "#00a680"
-  }
 });

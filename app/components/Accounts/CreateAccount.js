@@ -15,7 +15,7 @@ export default function CreateAccount(props) {
       <Text style={style.textRegister}>
         ¿Aun no tienes una cuenta?{" "}
         <Text
-          style={(style.btnRegister, { color: theme.color })}
+          style={[style.btnRegister, { color: theme.color }]}
           onPress={() => {
             navigation.navigate("Register");
           }}

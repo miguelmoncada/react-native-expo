@@ -3,7 +3,7 @@ import { StyleSheet, View, ScrollView, Text, Image } from "react-native";
 import { Button } from "react-native-elements";
 
 /* BEGIN IMPORTING THEME CONTEXT */
-import CustomTheme from "../components/CustomStyleSheet";
+import CustomTheme from "../styles/CustomThemes";
 import { ThemeContext } from "../context/ThemeContext";
 /* END IMPORTING THEME CONTEXT */
 
