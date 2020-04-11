@@ -5,6 +5,10 @@ import { StyleSheet, Text } from "react-native";
 import { ThemeContext } from "../../context/ThemeContext";
 /* END IMPORTING THEME CONTEXT */
 
+/* BEGIN IMPORTING ROUTES NAMES */
+import * as RoutesNames from "../../navigations/stacks/RoutesNames";
+/* END IMPORTING ROUTES NAMES */
+
 export default function CreateAccount(props) {
   const { navigation } = props;
 
@@ -16,7 +20,7 @@ export default function CreateAccount(props) {
       <Text
         style={[style.btnRegister, { color: theme.color }]}
         onPress={() => {
-          navigation.navigate("Register");
+          navigation.navigate(RoutesNames.STACK_REGISTER);
         }}
       >
         Regístrarte

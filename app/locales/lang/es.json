@@ -4,6 +4,20 @@
     "topRestaurants": "Top 5",
     "search": "Buscar",
     "account": "Mi Cuenta",
-    "settings": "Ajustes"
+    "settings": "Settings"
+  },
+  "accountsStack": {
+    "myAccount": "Mi Cuenta",
+    "login": "Ingresar",
+    "register":"Registrarse"
+  },
+  "restaurantsStack": {
+    "restaurants":"Restaurantes" 
+  },
+  "topRestaurantsStack": {
+    "topRestaurants": "Top 5"
+  },
+  "searchStack": {
+    "search":"Buscar"
   }
 }

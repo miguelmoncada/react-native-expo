@@ -6,6 +6,10 @@ import { Button } from "react-native-elements";
 import { ThemeContext } from "../../context/ThemeContext";
 /* END IMPORTING THEME CONTEXT */
 
+/* BEGIN IMPORTING ROUTES NAMES */
+import * as RoutesNames from "../../navigations/stacks/RoutesNames";
+/* END IMPORTING ROUTES NAMES */
+
 export default function userGuest(props) {
   const { navigation } = props;
 
@@ -30,7 +34,7 @@ export default function userGuest(props) {
           containerStyle={style.btnContainer}
           title="Ver tu perfil"
           onPress={() => {
-            navigation.navigate("Login");
+            navigation.navigate(RoutesNames.STACK_LOGIN);
           }}
         />
       </View>

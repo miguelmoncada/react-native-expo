@@ -5,5 +5,19 @@
     "search": "Search",
     "account": "My account",
     "settings": "Settings"
+  },
+  "accountsStack": {
+    "myAccount": "My Account",
+    "login": "Login",
+    "register":"Register"
+  },
+  "restaurantsStack": {
+    "restaurants":"Restaurants" 
+  },
+  "topRestaurantsStack": {
+    "topRestaurants": "Top 5"
+  },
+  "searchStack": {
+    "search":"Search"
   }
 }
