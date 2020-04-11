@@ -1,4 +1,4 @@
-import React, {useContext} from "react";
+import React, { useContext } from "react";
 import { StyleSheet, View, ScrollView, Text, Image } from "react-native";
 import { Button } from "react-native-elements";
 
@@ -9,34 +9,32 @@ import { ThemeContext } from "../../context/ThemeContext";
 export default function userGuest(props) {
   const { navigation } = props;
 
-  const [theme, setTheme] = useContext(ThemeContext);
+  const [theme] = useContext(ThemeContext);
 
   return (
-    <ThemeContext.Provider value={[theme, setTheme]}>
-      <ScrollView style={style.viewBody} centerContent={true}>
-        <Image
-          style={style.image}
-          source={require("../../../assets/img/user-guest.jpg")}
-          resizeMode="contain"
+    <ScrollView style={style.viewBody} centerContent={true}>
+      <Image
+        style={style.image}
+        source={require("../../../assets/img/user-guest.jpg")}
+        resizeMode="contain"
+      />
+      <Text style={style.title}>Consulta tu Perfil de 5 Tenedores</Text>
+      <Text style={style.description}>
+        ¿ Como describirías tu mejor restaurante ? Busca y visualiza los mejores
+        restaurantes de una forma sencilla, vota cual te ha gustado más y
+        comenta como ha sido tu experencia.
+      </Text>
+      <View style={style.viewBtn}>
+        <Button
+          buttonStyle={[{ backgroundColor: theme.color }]}
+          containerStyle={style.btnContainer}
+          title="Ver tu perfil"
+          onPress={() => {
+            navigation.navigate("Login");
+          }}
         />
-        <Text style={style.title}>Consulta tu Perfil de 5 Tenedores</Text>
-        <Text style={style.description}>
-          ¿ Como describirías tu mejor restaurante ? Busca y visualiza los
-          mejores restaurantes de una forma sencilla, vota cual te ha gustado
-          más y comenta como ha sido tu experencia.
-        </Text>
-        <View style={style.viewBtn}>
-          <Button
-            buttonStyle={[{ backgroundColor: theme.color }]}
-            containerStyle={style.btnContainer}
-            title="Ver tu perfil"
-            onPress={() => {
-              navigation.navigate("Login");
-            }}
-          />
-        </View>
-      </ScrollView>
-    </ThemeContext.Provider>
+      </View>
+    </ScrollView>
   );
 }
 

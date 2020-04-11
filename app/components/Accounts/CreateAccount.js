@@ -8,22 +8,20 @@ import { ThemeContext } from "../../context/ThemeContext";
 export default function CreateAccount(props) {
   const { navigation } = props;
 
-  const [theme, setTheme] = useContext(ThemeContext);
+  const [theme] = useContext(ThemeContext);
 
   return (
-    <ThemeContext.Provider value={[theme, setTheme]}>
-      <Text style={style.textRegister}>
-        ¿Aun no tienes una cuenta?{" "}
-        <Text
-          style={[style.btnRegister, { color: theme.color }]}
-          onPress={() => {
-            navigation.navigate("Register");
-          }}
-        >
-          Regístrarte
-        </Text>
+    <Text style={style.textRegister}>
+      ¿Aun no tienes una cuenta?{" "}
+      <Text
+        style={[style.btnRegister, { color: theme.color }]}
+        onPress={() => {
+          navigation.navigate("Register");
+        }}
+      >
+        Regístrarte
       </Text>
-    </ThemeContext.Provider>
+    </Text>
   );
 }
 

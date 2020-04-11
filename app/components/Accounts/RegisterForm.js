@@ -9,42 +9,40 @@ import { ThemeContext } from "../../context/ThemeContext";
 /* END IMPORTING THEME CONTEXT */
 
 export default function RegisterForm(props) {
+  const { toastRef } = props
+  const [theme] = useContext(ThemeContext);
   const [hidePassword, setHidePassword] = useState(true);
   const [hideRepeatPassword, setHideRepeatPassword] = useState(true);
-
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [repeatPassword, setRepeatPassword] = useState("");
 
   const register = async () => {
     if (!email || !password || !repeatPassword) {
-      console.log("Error: Todos los campos son requeridos");
+      toastRef.current.show("Error: Todos los campos son requeridos")
     } else {
       if (validateEmail(email)) {
         if (password !== repeatPassword) {
-          console.log("Error: Las contraseñas no coinciden");
+          toastRef.current.show("Error: Las contraseñas no coinciden")
         } else {
           await firebase
             .auth()
             .createUserWithEmailAndPassword(email, password)
             .then(() => {
-              console.log("Creado Usuario: " + email);
+              toastRef.current.show("Creado Usuario: " + email)
             })
             .catch(() => {
-              console.log("Error al crear cuenta");
+              toastRef.current.show("Error al crear cuenta")
             });
         }
       } else {
-        console.log("Error: Por favor ingrese un email válido");
+        toastRef.current.show("Error: Por favor ingrese un email válido")
       }
     }
   };
 
-  const [theme, setTheme] = useContext(ThemeContext);
-
   return (
-    <ThemeContext.Provider value={[theme, setTheme]}>
-      <View behavior="padding" style={style.formContainer} enable>
+    <View behavior="padding" style={style.formContainer} enable>
         <Input
           placeholder="Correro Electrónico"
           containerStyle={style.inputForm}
@@ -98,7 +96,6 @@ export default function RegisterForm(props) {
           onPress={register}
         />
       </View>
-    </ThemeContext.Provider>
   );
 }
 
