@@ -3,6 +3,10 @@ import { NavigationContainer } from "@react-navigation/native"
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
+/* BEGIN IMPORTING LANGUAGES */
+import I18n from '../utils/I18n'  
+/* END IMPORTING LANGUAGES */
+
 /* BEGIN IMPORTING STACKS */
 import AccountsStacks from '../navigations/stacks/AccountsStacks'
 import RestaurantsStack from '../navigations/stacks/RestaurantsStacks'
@@ -24,7 +28,7 @@ export default function Navigation(){
         }}
       >
         <Tab.Screen 
-          name="Restaurants" 
+          name={I18n.t('navigationTabs.restaurants')} 
           component={RestaurantsStack}
           options={{      
             tabBarIcon: ({ color, size }) => (
