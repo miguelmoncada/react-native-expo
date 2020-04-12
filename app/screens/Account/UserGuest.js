@@ -30,7 +30,7 @@ export default function userGuest(props) {
       </Text>
       <View style={style.viewBtn}>
         <Button
-          buttonStyle={[{ backgroundColor: theme.color }]}
+          buttonStyle={[{ backgroundColor: theme.button.backgroundColor }]}
           containerStyle={style.btnContainer}
           title="Ver tu perfil"
           onPress={() => {

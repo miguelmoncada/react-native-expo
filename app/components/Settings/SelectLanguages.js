@@ -1,7 +1,6 @@
 import React, { useContext } from "react";
 import { StyleSheet, View, Text } from "react-native";
 import { Button } from "react-native-elements";
-import CustomTheme from "../../styles/CustomThemes";
 
 /* BEGIN IMPORTING CONTEXT */
 import { ThemeContext } from "../../context/ThemeContext";
@@ -17,7 +16,7 @@ export default function SelectLanguages() {
       <Text style={style.title}>Selecciona un Idioma:</Text>
         <View style={style.viewBtn}>
           <Button
-            buttonStyle={{backgroundColor: theme.color}}
+            buttonStyle={{backgroundColor: theme.button.backgroundColor}}
             containerStyle={style.btnContainer}
             title="English"
             onPress={() => setLang("en")}
@@ -25,7 +24,7 @@ export default function SelectLanguages() {
         </View>
         <View style={style.viewBtn}>
           <Button
-            buttonStyle={{backgroundColor: theme.color}}
+            buttonStyle={{backgroundColor: theme.button.backgroundColor}}
             containerStyle={style.btnContainer}
             title="Español"
             onPress={() => setLang("es")}

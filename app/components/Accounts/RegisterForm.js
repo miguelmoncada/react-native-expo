@@ -92,7 +92,7 @@ export default function RegisterForm(props) {
         <Button
           title="Registrarse"
           containerStyle={style.btnContainerRegister}
-          buttonStyle={{ backgroundColor: theme.color }}
+          buttonStyle={{ backgroundColor: theme.button.backgroundColor }}
           onPress={register}
         />
       </View>

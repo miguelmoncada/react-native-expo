@@ -36,7 +36,7 @@ export default function Navigation(props) {
       <Tab.Navigator
         initialRouteName={RoutesNames.TAB_ACCOUNT}
         tabBarOptions={{
-          activeTintColor: theme.color
+          activeTintColor: theme.tab.color
         }}
       >
         <Tab.Screen
