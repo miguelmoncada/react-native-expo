@@ -21,7 +21,3 @@ export default function userGuest(props) {
         </KeyboardAwareScrollView>
     )
 }
-
-const style = StyleSheet.create({
-
-});

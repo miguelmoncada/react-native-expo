@@ -3,7 +3,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import RestaurantsScreen from '../../screens/Restaurants'
 
 /* BEGIN IMPORTING ROUTES NAMES */
-import * as RoutesNames from "../../navigations/stacks/RoutesNames";
+import {STACK_RESTAURANTS} from "./RoutesNames";
 /* END IMPORTING ROUTES NAMES */
 
 /* BEGIN IMPORTING LANGUAGES */
@@ -16,16 +16,16 @@ import { LanguageContext } from "../../context/LanguageContext";
 
 const Stack = createStackNavigator();
 
-export default function RstaurantsStacks() {
+export default function RestaurantStacks() {
   const [lang] = useContext(LanguageContext);
 
   return(
     <Stack.Navigator>
       <Stack.Screen 
-        name={RoutesNames.STACK_RESTAURANTS} 
+        name={STACK_RESTAURANTS} 
         component={RestaurantsScreen}
         options={{
-          title: I18n.t("restaurantsStack.restaurants", { locale: lang })
+          title: I18n.t("restaurantStack.restaurants", { locale: lang })
         }}
       />
     </Stack.Navigator>

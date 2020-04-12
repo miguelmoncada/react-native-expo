@@ -3,7 +3,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import SettingsScreen from "../../screens/Settings";
 
 /* BEGIN IMPORTING ROUTES NAMES */
-import * as RoutesNames from "../../navigations/stacks/RoutesNames";
+import {STACK_SETTINGS} from "./RoutesNames";
 /* END IMPORTING ROUTES NAMES */
 
 /* BEGIN IMPORTING LANGUAGES */
@@ -22,7 +22,7 @@ export default function SettingsStacks() {
   return (
     <Stack.Navigator>
       <Stack.Screen
-        name={RoutesNames.STACK_SETTINGS}
+        name={STACK_SETTINGS}
         component={SettingsScreen}
         options={{
           title: I18n.t("settingStack.settings", { locale: lang })

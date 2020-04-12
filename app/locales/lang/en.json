@@ -6,12 +6,12 @@
     "account": "My account",
     "settings": "Settings"
   },
-  "accountsStack": {
+  "accountStack": {
     "myAccount": "My Account",
     "login": "Login",
     "register":"Register"
   },
-  "restaurantsStack": {
+  "restaurantStack": {
     "restaurants":"Restaurants" 
   },
   "topRestaurantsStack": {

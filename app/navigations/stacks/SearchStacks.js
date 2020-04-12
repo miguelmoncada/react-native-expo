@@ -3,7 +3,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import SearchScreen from "../../screens/Search";
 
 /* BEGIN IMPORTING ROUTES NAMES */
-import * as RoutesNames from "../../navigations/stacks/RoutesNames";
+import {STACK_SEARCH} from "./RoutesNames";
 /* END IMPORTING ROUTES NAMES */
 
 /* BEGIN IMPORTING LANGUAGES */
@@ -22,7 +22,7 @@ export default function SearchStacks() {
   return (
     <Stack.Navigator>
       <Stack.Screen
-        name={RoutesNames.STACK_SEARCH}
+        name={STACK_SEARCH}
         component={SearchScreen}
         options={{
           title: I18n.t("searchStack.search", { locale: lang })

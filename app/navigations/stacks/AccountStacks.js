@@ -5,7 +5,11 @@ import LoginScreen from "../../screens/Account/Login";
 import RegisterScreen from "../../screens/Account/Register";
 
 /* BEGIN IMPORTING ROUTES NAMES */
-import * as RoutesNames from "../../navigations/stacks/RoutesNames";
+import {
+  STACK_MY_ACCOUNT,
+  STACK_LOGIN,
+  STACK_REGISTER
+} from "./RoutesNames";
 /* END IMPORTING ROUTES NAMES */
 
 /* BEGIN IMPORTING LANGUAGES */
@@ -18,30 +22,30 @@ import { LanguageContext } from "../../context/LanguageContext";
 
 const Stack = createStackNavigator();
 
-export default function AccountsStacks() {
+export default function AccountStacks() {
   const [lang] = useContext(LanguageContext);
 
   return (
     <Stack.Navigator>
       <Stack.Screen
-        name={RoutesNames.STACK_MY_ACCOUNT}
+        name={STACK_MY_ACCOUNT}
         component={MyAccountScreen}
         options={{
-          title: I18n.t("accountsStack.myAccount", { locale: lang })
+          title: I18n.t("accountStack.myAccount", { locale: lang })
         }}
       />
       <Stack.Screen
-        name={RoutesNames.STACK_LOGIN}
+        name={STACK_LOGIN}
         component={LoginScreen}
         options={{
-          title: I18n.t("accountsStack.login", { locale: lang })
+          title: I18n.t("accountStack.login", { locale: lang })
         }}
       />
       <Stack.Screen
-        name={RoutesNames.STACK_REGISTER}
+        name={STACK_REGISTER}
         component={RegisterScreen}
         options={{
-          title: I18n.t("accountsStack.register", { locale: lang })
+          title: I18n.t("accountStack.register", { locale: lang })
         }}
       />
     </Stack.Navigator>

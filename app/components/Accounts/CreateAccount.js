@@ -6,7 +6,7 @@ import { ThemeContext } from "../../context/ThemeContext";
 /* END IMPORTING THEME CONTEXT */
 
 /* BEGIN IMPORTING ROUTES NAMES */
-import * as RoutesNames from "../../navigations/stacks/RoutesNames";
+import {STACK_REGISTER} from "../../navigations/stacks/RoutesNames";
 /* END IMPORTING ROUTES NAMES */
 
 export default function CreateAccount(props) {
@@ -20,7 +20,7 @@ export default function CreateAccount(props) {
       <Text
         style={[style.btnRegister, { color: theme.text.color }]}
         onPress={() => {
-          navigation.navigate(RoutesNames.STACK_REGISTER);
+          navigation.navigate(STACK_REGISTER);
         }}
       >
         Regístrarte

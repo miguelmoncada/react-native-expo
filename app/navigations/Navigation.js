@@ -1,10 +1,16 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useContext } from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 
 /* BEGIN IMPORTING ROUTES NAMES */
-import * as RoutesNames from "../navigations/stacks/RoutesNames";
+import { 
+  TAB_ACCOUNT, 
+  TAB_RESTAURANTS, 
+  TAB_TOP_RESTAURANTS, 
+  TAB_SEARCH, 
+  TAB_SETTINGS 
+} from "./stacks/RoutesNames";
 /* END IMPORTING ROUTES NAMES */
 
 /* BEGIN IMPORTING LANGUAGES */
@@ -12,9 +18,9 @@ import I18n from "../utils/I18n";
 /* END IMPORTING LANGUAGES */
 
 /* BEGIN IMPORTING STACKS */
-import AccountsStacks from "../navigations/stacks/AccountsStacks";
-import RestaurantsStack from "../navigations/stacks/RestaurantsStacks";
-import TopRestaurantsStack from "../navigations/stacks/TopRestaurantsStacks";
+import AccountStacks from "./stacks/AccountStacks";
+import RestaurantStack from "./stacks/RestaurantStacks";
+import TopRestaurantStack from "./stacks/TopRestaurantsStacks";
 import SearchStack from "../navigations/stacks/SearchStacks";
 import SettingsStacks from "../navigations/stacks/SettingsStacks";
 /* END IMPORTING STACKS */
@@ -34,14 +40,14 @@ export default function Navigation(props) {
     /* BEGIN CREATE BOTTOM TABS*/
     <NavigationContainer>
       <Tab.Navigator
-        initialRouteName={RoutesNames.TAB_ACCOUNT}
+        initialRouteName={TAB_ACCOUNT}
         tabBarOptions={{
           activeTintColor: theme.tab.color
         }}
       >
         <Tab.Screen
-          name={RoutesNames.TAB_RESTAURANTS}
-          component={RestaurantsStack}
+          name={TAB_RESTAURANTS}
+          component={RestaurantStack}
           options={{
             title: I18n.t("navigationTabs.restaurants", {locale: lang}),
             tabBarIcon: ({ color, size }) => (
@@ -54,8 +60,8 @@ export default function Navigation(props) {
           }}
         />
         <Tab.Screen
-          name={RoutesNames.TAB_TOP_RESTAURANTS}
-          component={TopRestaurantsStack}
+          name={TAB_TOP_RESTAURANTS}
+          component={TopRestaurantStack}
           options={{
             title: I18n.t("navigationTabs.topRestaurants", {locale: lang}),
             tabBarIcon: ({ color, size }) => (
@@ -68,7 +74,7 @@ export default function Navigation(props) {
           }}
         />
         <Tab.Screen
-          name={RoutesNames.TAB_SEARCH}
+          name={TAB_SEARCH}
           component={SearchStack}
           options={{
             title: I18n.t("navigationTabs.search", {locale: lang}),
@@ -82,8 +88,8 @@ export default function Navigation(props) {
           }}
         />
         <Tab.Screen
-          name={RoutesNames.TAB_ACCOUNT}
-          component={AccountsStacks}
+          name={TAB_ACCOUNT}
+          component={AccountStacks}
           options={{
             title: I18n.t("navigationTabs.account", {locale: lang}),
             tabBarIcon: ({ color, size }) => (
@@ -96,7 +102,7 @@ export default function Navigation(props) {
           }}
         />
         <Tab.Screen
-          name={RoutesNames.TAB_SETTINGS}
+          name={TAB_SETTINGS}
           component={SettingsStacks}
           options={{
             title: I18n.t("navigationTabs.settings", {locale: lang}),

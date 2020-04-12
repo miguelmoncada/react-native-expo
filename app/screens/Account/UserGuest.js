@@ -7,7 +7,7 @@ import { ThemeContext } from "../../context/ThemeContext";
 /* END IMPORTING THEME CONTEXT */
 
 /* BEGIN IMPORTING ROUTES NAMES */
-import * as RoutesNames from "../../navigations/stacks/RoutesNames";
+import {STACK_LOGIN} from "../../navigations/stacks/RoutesNames";
 /* END IMPORTING ROUTES NAMES */
 
 export default function userGuest(props) {
@@ -34,7 +34,7 @@ export default function userGuest(props) {
           containerStyle={style.btnContainer}
           title="Ver tu perfil"
           onPress={() => {
-            navigation.navigate(RoutesNames.STACK_LOGIN);
+            navigation.navigate(STACK_LOGIN);
           }}
         />
       </View>
@@ -65,9 +65,6 @@ const style = StyleSheet.create({
   viewBtn: {
     flex: 1,
     alignItems: "center"
-  },
-  btnStyle: {
-    backgroundColor: "#00a680"
   },
   btnContainer: {
     width: "70%"

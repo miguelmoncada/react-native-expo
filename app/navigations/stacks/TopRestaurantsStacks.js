@@ -3,7 +3,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import TopRestaurantsScreen from "../../screens/TopRestaurants";
 
 /* BEGIN IMPORTING ROUTES NAMES */
-import * as RoutesNames from "../../navigations/stacks/RoutesNames";
+import {STACK_TOP_RESTAURANTS} from "./RoutesNames";
 /* END IMPORTING ROUTES NAMES */
 
 /* BEGIN IMPORTING LANGUAGES */
@@ -22,7 +22,7 @@ export default function topRestaurantsStacks() {
   return (
     <Stack.Navigator>
       <Stack.Screen
-        name={RoutesNames.STACK_LOGIN}
+        name={STACK_TOP_RESTAURANTS}
         component={TopRestaurantsScreen}
         options={{
           title: I18n.t("topRestaurantsStack.topRestaurants", { locale: lang })

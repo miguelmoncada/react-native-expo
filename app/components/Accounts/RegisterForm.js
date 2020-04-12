@@ -13,8 +13,6 @@ import InputText from "../../components/InputText";
 export default function RegisterForm(props) {
   const { toastRef } = props;
   const [theme] = useContext(ThemeContext);
-  const [hidePassword, setHidePassword] = useState(true);
-  const [hideRepeatPassword, setHideRepeatPassword] = useState(true);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [repeatPassword, setRepeatPassword] = useState("");
