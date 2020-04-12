@@ -4,7 +4,7 @@
     "topRestaurants": "Top 5",
     "search": "Buscar",
     "account": "Mi Cuenta",
-    "settings": "Settings"
+    "settings": "Ajustes"
   },
   "accountsStack": {
     "myAccount": "Mi Cuenta",
@@ -19,5 +19,8 @@
   },
   "searchStack": {
     "search":"Buscar"
+  },
+  "settingStack": {
+    "settings":"Ajustes"
   }
 }

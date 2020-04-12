@@ -9,3 +9,4 @@ export const STACK_REGISTER = "stackRegister";
 export const STACK_RESTAURANTS = "stackRestaurants";
 export const STACK_TOP_RESTAURANTS = "stackTopRestaurants";
 export const STACK_SEARCH = "stackSeach";
+export const STACK_SETTINGS = "stackSettings";

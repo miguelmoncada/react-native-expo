@@ -19,5 +19,8 @@
   },
   "searchStack": {
     "search":"Search"
+  },
+  "settingStack": {
+    "settings":"Settings"
   }
 }
