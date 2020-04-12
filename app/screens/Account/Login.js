@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyleSheet ,Text, View, ScrollView, Image } from 'react-native'
+import { ScrollView } from 'react-native'
 import ImagenLogo from '../../components/ImagenLogo'
 import CreateAccount from '../../components/Accounts/CreateAccount'
 import CustomViewContainer from '../../components/CustomViewContainer'
@@ -11,7 +11,7 @@ export default function Login(props) {
 
     return (
       <ScrollView>
-          <ImagenLogo />
+        <ImagenLogo />
         <CustomViewContainer>
             <CreateAccount navigation={navigation}/>
         </CustomViewContainer>

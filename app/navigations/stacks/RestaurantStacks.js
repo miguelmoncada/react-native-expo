@@ -1,9 +1,9 @@
-import React, { useContext } from "react";
-import { createStackNavigator } from "@react-navigation/stack";
-import TopRestaurantsScreen from "../../screens/TopRestaurants";
+import React, {useContext} from 'react';
+import { createStackNavigator } from '@react-navigation/stack';
+import RestaurantsScreen from '../../screens/Restaurants'
 
 /* BEGIN IMPORTING ROUTES NAMES */
-import {STACK_TOP_RESTAURANTS} from "./RoutesNames";
+import {STACK_RESTAURANTS} from "./RoutesNames";
 /* END IMPORTING ROUTES NAMES */
 
 /* BEGIN IMPORTING LANGUAGES */
@@ -16,16 +16,16 @@ import { LanguageContext } from "../../context/LanguageContext";
 
 const Stack = createStackNavigator();
 
-export default function topRestaurantsStacks() {
+export default function RestaurantStacks() {
   const [lang] = useContext(LanguageContext);
 
-  return (
+  return(
     <Stack.Navigator>
-      <Stack.Screen
-        name={STACK_TOP_RESTAURANTS}
-        component={TopRestaurantsScreen}
+      <Stack.Screen 
+        name={STACK_RESTAURANTS} 
+        component={RestaurantsScreen}
         options={{
-          title: I18n.t("topRestaurantsStack.topRestaurants", { locale: lang })
+          title: I18n.t("restaurantStack.restaurants", { locale: lang })
         }}
       />
     </Stack.Navigator>
