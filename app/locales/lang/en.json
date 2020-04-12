@@ -22,5 +22,8 @@
   },
   "settingStack": {
     "settings":"Settings"
+  },
+  "userGuestScreen": {
+    "text": "Check your profile on 5 Forts"
   }
 }

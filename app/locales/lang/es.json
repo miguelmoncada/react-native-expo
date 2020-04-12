@@ -22,5 +22,8 @@
   },
   "settingStack": {
     "settings":"Ajustes"
+  },
+  "userGuestScreen": {
+    "text": "Consulta tu Perfil de 5 Tenedores"
   }
 }
