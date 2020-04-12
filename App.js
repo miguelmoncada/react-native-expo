@@ -8,8 +8,7 @@ import { LanguageContext } from "./app/context/LanguageContext";
 
 export default function App() {
   const [theme, setTheme] = useState(CustomTheme.THEME_SUCCESS);
-  const [lang, setLang] = useState(I18n.currentLocale());
-  
+  const [lang, setLang] = useState(I18n.locale);
   return (
     <LanguageContext.Provider value={[lang, setLang]}>
       <ThemeContext.Provider value={[theme, setTheme]}>
