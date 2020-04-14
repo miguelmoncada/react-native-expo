@@ -10,6 +10,7 @@ import { ThemeContext } from "../../context/ThemeContext";
 import { LanguageContext } from "../../context/LanguageContext";
 /* END IMPORTING THEME CONTEXT */
 import I18n from "../../utils/I18n";
+import {validate} from '../../helpers/Validation'
 
 export default function RegisterForm(props) {
   const { toastRef } = props;
@@ -19,10 +20,24 @@ export default function RegisterForm(props) {
   const [password, setPassword] = useState("");
   const [repeatPassword, setRepeatPassword] = useState("");
   const [isError, setError] = useState(false);
-  const [errorMessage, setErrorMessage] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
 
   const register = async () => {
-    if (!email || !password || !repeatPassword) {
+    let form = {
+      email: email,
+      password: password,
+      password_confirmation: repeatPassword
+    }
+    let errors = await validate(form,'register')
+    if (Object.keys(errors).length > 0) {
+      console.log(errors)
+      setError(true)
+      setErrorMessage(errors)
+    }
+
+
+    
+/*     if (!email || !password || !repeatPassword) {
       setError(true);
       setErrorMessage("Campo requerido");
     } else {
@@ -46,7 +61,7 @@ export default function RegisterForm(props) {
         setError(false);
         console.log("Error: Por favor ingrese un email válido");
       }
-    }
+    } */
   };
 
   return (
@@ -59,15 +74,15 @@ export default function RegisterForm(props) {
         isActive={true}
         keyboardType="email-address"
         isError={isError}
-        errorMessage={errorMessage}
-        onChange={e => setEmail(e.nativeEvent.text)}
+        errorMessage={errorMessage['email']}
+        onChange={ (e) => setEmail(e.nativeEvent.text)}
       />
       <InputText
         label={I18n.t("registerScreen.password", { locale: lang })}
         text={password}
         isActive={true}
         isError={isError}
-        errorMessage={errorMessage}
+        errorMessage={errorMessage['password']}
         onChange={e => setPassword(e.nativeEvent.text)}
         secureTextEntry={true}
       />
@@ -76,7 +91,7 @@ export default function RegisterForm(props) {
         text={repeatPassword}
         isActive={true}
         isError={isError}
-        errorMessage={errorMessage}
+        errorMessage={errorMessage['password_confirmation']}
         onChange={e => setRepeatPassword(e.nativeEvent.text)}
         secureTextEntry={true}
       />
