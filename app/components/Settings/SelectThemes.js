@@ -5,32 +5,35 @@ import { Button } from "react-native-elements";
 /* BEGIN IMPORTING THEME CONTEXT */
 import CustomTheme from "../../styles/ExportThemes";
 import { ThemeContext } from "../../context/ThemeContext";
+import { LanguageContext } from "../../context/LanguageContext";
+import I18n from '../../utils/I18n'
 /* END IMPORTING THEME CONTEXT */
 
 export default function SelectThemes() {
 
   const [theme, setTheme] = useContext(ThemeContext);
+  const [lang] = useContext(LanguageContext);
 
   return (
-    <ThemeContext.Provider value={[theme, setTheme]}>
-      <Text style={style.title}>Selecciona un Tema:</Text>
-        <View style={style.viewBtn}>
-          <Button
-            buttonStyle={{backgroundColor: CustomTheme.THEME_SUCCESS.button.backgroundColor}}
-            containerStyle={style.btnContainer}
-            title="Success"
-            onPress={() => setTheme(CustomTheme.THEME_SUCCESS)}
-          />
-        </View>
-        <View style={style.viewBtn}>
-          <Button
-            buttonStyle={{backgroundColor: CustomTheme.THEME_PRIMARY.button.backgroundColor}}
-            containerStyle={style.btnContainer}
-            title="Primary"
-            onPress={() => setTheme(CustomTheme.THEME_PRIMARY)}
-          />
-        </View>
-    </ThemeContext.Provider>
+		<ThemeContext.Provider value={[ theme, setTheme ]}>
+			<Text style={style.title}>{I18n.t('settingStack.selectTheme', { locale: lang })}</Text>
+			<View style={style.viewBtn}>
+				<Button
+					buttonStyle={{ backgroundColor: CustomTheme.THEME_SUCCESS.button.backgroundColor }}
+					containerStyle={style.btnContainer}
+					title={I18n.t('settingStack.successBtn', { locale: lang })}
+					onPress={() => setTheme(CustomTheme.THEME_SUCCESS)}
+				/>
+			</View>
+			<View style={style.viewBtn}>
+				<Button
+					buttonStyle={{ backgroundColor: CustomTheme.THEME_PRIMARY.button.backgroundColor }}
+					containerStyle={style.btnContainer}
+					title={I18n.t('settingStack.primaryBtn', { locale: lang })}
+					onPress={() => setTheme(CustomTheme.THEME_PRIMARY)}
+				/>
+			</View>
+		</ThemeContext.Provider>
   );
 }
 

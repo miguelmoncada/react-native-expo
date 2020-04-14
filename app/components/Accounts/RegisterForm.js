@@ -3,16 +3,18 @@ import { StyleSheet, View } from "react-native";
 import { Input, Icon, Button } from "react-native-elements";
 import Validations, { validateEmail } from "../../utils/Validation";
 import * as firebase from "firebase";
+import InputText from "../../components/InputText";
 
 /* BEGIN IMPORTING THEME CONTEXT */
 import { ThemeContext } from "../../context/ThemeContext";
+import { LanguageContext } from "../../context/LanguageContext";
 /* END IMPORTING THEME CONTEXT */
-
-import InputText from "../../components/InputText";
+import I18n from "../../utils/I18n";
 
 export default function RegisterForm(props) {
   const { toastRef } = props;
   const [theme] = useContext(ThemeContext);
+  const [lang] = useContext(LanguageContext);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [repeatPassword, setRepeatPassword] = useState("");
@@ -37,7 +39,7 @@ export default function RegisterForm(props) {
               console.log("Creado Usuario: " + email);
             })
             .catch(e => {
-              toastRef.current.show("Error al crear cuenta")
+              toastRef.current.show("Error al crear cuenta");
             });
         }
       } else {
@@ -52,7 +54,7 @@ export default function RegisterForm(props) {
       style={[styles.formContainer, { backgroundColor: theme.formContainer }]}
     >
       <InputText
-        label="Correo Electrónico"
+        label={I18n.t("registerScreen.email", { locale: lang })}
         text={email}
         isActive={true}
         keyboardType="email-address"
@@ -61,7 +63,7 @@ export default function RegisterForm(props) {
         onChange={e => setEmail(e.nativeEvent.text)}
       />
       <InputText
-        label="Contraseña"
+        label={I18n.t("registerScreen.password", { locale: lang })}
         text={password}
         isActive={true}
         isError={isError}
@@ -70,7 +72,7 @@ export default function RegisterForm(props) {
         secureTextEntry={true}
       />
       <InputText
-        label="Repetir Contraseña"
+        label={I18n.t("registerScreen.repeatPassword", { locale: lang })}
         text={repeatPassword}
         isActive={true}
         isError={isError}
@@ -79,7 +81,7 @@ export default function RegisterForm(props) {
         secureTextEntry={true}
       />
       <Button
-        title="Unirse"
+        title={I18n.t("registerScreen.signUp", { locale: lang })}
         containerStyle={styles.btnContainerRegister}
         buttonStyle={{ backgroundColor: theme.button.backgroundColor }}
         onPress={register}
@@ -95,7 +97,7 @@ const styles = StyleSheet.create({
   btnContainerRegister: {
     marginTop: 20,
     marginLeft: 10,
-    marginRight: 10, 
+    marginRight: 10,
     width: "95%"
   }
 });

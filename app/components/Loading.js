@@ -3,6 +3,7 @@ import { StyleSheet, View, Text, ActivityIndicator } from "react-native";
 import { Overlay } from "react-native-elements";
 import { ThemeContext } from "../context/ThemeContext";
 
+
 export default function Loading(props) {
   const { isVisible, text } = props;
   const [theme] = useContext(ThemeContext);

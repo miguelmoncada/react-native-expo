@@ -4,42 +4,37 @@ import { Button } from "react-native-elements";
 
 /* BEGIN IMPORTING THEME CONTEXT */
 import { ThemeContext } from "../../context/ThemeContext";
+import { LanguageContext } from "../../context/LanguageContext";
 /* END IMPORTING THEME CONTEXT */
-
+import I18n from '../../utils/I18n';
 /* BEGIN IMPORTING ROUTES NAMES */
 import {STACK_LOGIN} from "../../navigations/stacks/RoutesNames";
 /* END IMPORTING ROUTES NAMES */
 
-export default function userGuest(props) {
-  const { navigation } = props;
+export default function UserGuest(props) {
+	const { navigation } = props;
+	const [ theme, setTheme ] = useContext(ThemeContext);
+	const [ lang ] = useContext(LanguageContext);
 
-  const [theme] = useContext(ThemeContext);
-
-  return (
-    <ScrollView style={style.viewBody} centerContent={true}>
-      <Image
-        style={style.image}
-        source={require("../../../assets/img/user-guest.jpg")}
-        resizeMode="contain"
-      />
-      <Text style={style.title}>Consulta tu Perfil de 5 Tenedores</Text>
-      <Text style={style.description}>
-        ¿ Como describirías tu mejor restaurante ? Busca y visualiza los mejores
-        restaurantes de una forma sencilla, vota cual te ha gustado más y
-        comenta como ha sido tu experencia.
-      </Text>
-      <View style={style.viewBtn}>
-        <Button
-          buttonStyle={[{ backgroundColor: theme.button.backgroundColor }]}
-          containerStyle={style.btnContainer}
-          title="Ver tu perfil"
-          onPress={() => {
-            navigation.navigate(STACK_LOGIN);
-          }}
-        />
-      </View>
-    </ScrollView>
-  );
+	return (
+		<ThemeContext.Provider value={[ theme, setTheme ]}>
+			<ScrollView style={style.viewBody} centerContent={true}>
+				<Image style={style.image} source={require('../../../assets/img/user-guest.jpg')} resizeMode="contain" />
+				<Text style={style.title}>{I18n.t('userGuestScreen.title', { locale: lang })}</Text>
+				<Text style={style.description}>{I18n.t('userGuestScreen.description', { locale: lang })}</Text>
+				<View style={style.viewBtn}>
+					<Button
+						buttonStyle={{ backgroundColor: theme.button.backgroundColor }}
+						containerStyle={style.btnContainer}
+						title={I18n.t('userGuestScreen.buttonText', { locale: lang })}
+						onPress={() => {
+							navigation.navigate(STACK_LOGIN);
+						}}
+					/>
+				</View>
+			</ScrollView>
+		</ThemeContext.Provider>
+	);
 }
 
 const style = StyleSheet.create({

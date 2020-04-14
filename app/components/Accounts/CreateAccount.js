@@ -3,7 +3,9 @@ import { StyleSheet, Text } from "react-native";
 
 /* BEGIN IMPORTING THEME CONTEXT */
 import { ThemeContext } from "../../context/ThemeContext";
+import { LanguageContext } from "../../context/LanguageContext";
 /* END IMPORTING THEME CONTEXT */
+import I18n from '../../utils/I18n';
 
 /* BEGIN IMPORTING ROUTES NAMES */
 import {STACK_REGISTER} from "../../navigations/stacks/RoutesNames";
@@ -13,19 +15,20 @@ export default function CreateAccount(props) {
   const { navigation } = props;
 
   const [theme] = useContext(ThemeContext);
+  const [ lang ] = useContext(LanguageContext);
 
   return (
     <Text style={style.textRegister}>
-      ¿Aun no tienes una cuenta?{" "}
-      <Text
-        style={[style.btnRegister, { color: theme.text.color }]}
-        onPress={() => {
-          navigation.navigate(STACK_REGISTER);
-        }}
-      >
-        Regístrarte
-      </Text>
-    </Text>
+		    {I18n.t('loginScreen.noAccountText', { locale: lang })}{' '}
+			<Text
+				style={[ style.btnRegister, { color: theme.text.color } ]}
+				onPress={() => {
+					navigation.navigate(STACK_REGISTER);
+				}}
+			>
+				{I18n.t('loginScreen.signUp', { locale: lang })}
+			</Text>
+		</Text>
   );
 }
 
