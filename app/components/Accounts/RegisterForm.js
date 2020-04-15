@@ -10,7 +10,7 @@ import { ThemeContext } from "../../context/ThemeContext";
 import { LanguageContext } from "../../context/LanguageContext";
 /* END IMPORTING THEME CONTEXT */
 import I18n from "../../utils/I18n";
-import {validate} from '../../helpers/Validation'
+import { validate } from "../../helpers/Validation";
 
 export default function RegisterForm(props) {
   const { toastRef } = props;
@@ -18,50 +18,33 @@ export default function RegisterForm(props) {
   const [lang] = useContext(LanguageContext);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [repeatPassword, setRepeatPassword] = useState("");
+  const [password_confirmation, setPasswordConfimation] = useState("");
   const [isError, setError] = useState(false);
-  const [errorMessage, setErrorMessage] = useState("");
+  const [errorMessage, setErrorMessage] = useState();
 
   const register = async () => {
     let form = {
       email: email,
       password: password,
-      password_confirmation: repeatPassword
-    }
-    let errors = await validate(form,'register')
+      password_confirmation: password_confirmation
+    };
+    let errors = await validate(form, "register");
     if (Object.keys(errors).length > 0) {
-      console.log(errors)
-      setError(true)
-      setErrorMessage(errors)
-    }
-
-
-    
-/*     if (!email || !password || !repeatPassword) {
       setError(true);
-      setErrorMessage("Campo requerido");
+      setErrorMessage(errors);
     } else {
-      if (validateEmail(email)) {
-        setError(false);
-        if (password !== repeatPassword) {
-          console.log("Error: Las contraseñas no coinciden");
-        } else {
-          setError(false);
-          await firebase
-            .auth()
-            .createUserWithEmailAndPassword(email, password)
-            .then(() => {
-              console.log("Creado Usuario: " + email);
-            })
-            .catch(e => {
-              toastRef.current.show("Error al crear cuenta");
-            });
-        }
-      } else {
-        setError(false);
-        console.log("Error: Por favor ingrese un email válido");
-      }
-    } */
+      setError(false);
+      setErrorMessage();
+      await firebase
+        .auth()
+        .createUserWithEmailAndPassword(email, password)
+        .then(() => {
+          toastRef.current.show("Creado Usuario: " + email);
+        })
+        .catch(e => {
+          toastRef.current.show("Error al crear cuenta");
+        });
+    }
   };
 
   return (
@@ -71,28 +54,31 @@ export default function RegisterForm(props) {
       <InputText
         label={I18n.t("registerScreen.email", { locale: lang })}
         text={email}
+        who={"email"}
         isActive={true}
         keyboardType="email-address"
         isError={isError}
-        errorMessage={errorMessage['email']}
-        onChange={ (e) => setEmail(e.nativeEvent.text)}
+        errorMessage={errorMessage}
+        onChange={e => setEmail(e.nativeEvent.text)}
       />
       <InputText
         label={I18n.t("registerScreen.password", { locale: lang })}
         text={password}
+        who={"password"}
         isActive={true}
         isError={isError}
-        errorMessage={errorMessage['password']}
+        errorMessage={errorMessage}
         onChange={e => setPassword(e.nativeEvent.text)}
         secureTextEntry={true}
       />
       <InputText
         label={I18n.t("registerScreen.repeatPassword", { locale: lang })}
-        text={repeatPassword}
+        text={password_confirmation}
         isActive={true}
+        who={"password_confirmation"}
         isError={isError}
-        errorMessage={errorMessage['password_confirmation']}
-        onChange={e => setRepeatPassword(e.nativeEvent.text)}
+        errorMessage={errorMessage}
+        onChange={e => setPasswordConfimation(e.nativeEvent.text)}
         secureTextEntry={true}
       />
       <Button
