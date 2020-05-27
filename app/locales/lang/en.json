@@ -37,12 +37,22 @@
 	},
 	"loginScreen": {
 		"noAccountText": "Not account yet?",
-		"signUp": "Sign up"
+		"signUp": "Sign up",
+		"email": "Email",
+		"password": "Password",
+		"login": "Login"
 	},
 	"registerScreen": {
 		"email": "Email",
 		"password": "Password",
 		"repeatPassword": "Repeat Password",
-		"signUp": "Sign Up"
+		"signUp": "Sign Up",
+		"passwordError": "Password should be at least 6 characters"
+	},
+	"infoUserScreen": {
+		"name": "Name",
+		"email": "Email",
+		"button": "Logout",
+		"socialLogin": "Social Login"
 	}
 }

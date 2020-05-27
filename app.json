@@ -1,4 +1,12 @@
 {
   "name": "TripAdvisor",
-  "displayName": "TripAdvisor"
+  "displayName": "TripAdvisor",
+  "android": {
+    "permissions": [
+      "READ_EXTERNAL_STORAGE", 
+      "WRITE_EXTERNAL_STORAGE",
+      "CAMERA",
+      "CAMERA_ROLL"
+    ]
+  }
 }

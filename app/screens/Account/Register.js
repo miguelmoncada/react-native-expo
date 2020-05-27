@@ -1,5 +1,4 @@
 import React, {useRef} from 'react'
-import { StyleSheet, View, Image } from 'react-native'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 import ImagenLogo from '../../components/ImagenLogo'
 import CustomViewContainer from '../../components/CustomViewContainer'
@@ -8,16 +7,16 @@ import Toast, {DURATION} from 'react-native-easy-toast'
 
 
 export default function userGuest(props) {
-
+    const {navigation} = props 
     const toastRef = useRef();
-
+    
     return (
         <KeyboardAwareScrollView>
             <ImagenLogo />
             <CustomViewContainer>
-                <RegisterForm toastRef={toastRef}/>
+                <RegisterForm toastRef={toastRef} navigation={navigation}/>
             </CustomViewContainer>
-            <Toast ref={toastRef} position="center" opacity={0.5} />
+            <Toast ref={toastRef} position="top" opacity={0.7} />
         </KeyboardAwareScrollView>
     )
 }
